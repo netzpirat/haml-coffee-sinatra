@@ -10,7 +10,7 @@ class App < Sinatra::Base
 
   configure do
     sprockets.append_path File.join(root, 'assets', 'javascripts')
-    sprockets.append_path File.join(Bundler.load.specs.find{ |s| s.name == 'haml_coffee_assets' }.full_gem_path, 'vendor', 'assets', 'javascripts')
+    sprockets.append_path File.dirname(HamlCoffeeAssets.helpers_path)
 
     Sprockets::Helpers.configure do |config|
       config.environment = sprockets
